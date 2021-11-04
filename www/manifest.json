@@ -1,0 +1,25 @@
+{
+  "name": "TopCar",
+  "short_name": "TopCar",
+  "start_url": "http://localhost:5500/",
+  "display": "standalone",
+  "theme_color": "#ffff",
+  "orientation": "landscape",
+  "icons": [
+    {
+      "src": "/img/logos/car-logo.png",
+      "sizes": "50x50",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/logos/car-logo.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "web"
+    }
+  ]
+}

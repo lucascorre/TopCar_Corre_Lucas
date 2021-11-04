@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <link rel="manifest" href="manifest.json" />
+    <script>
+        window.addEventListener("load", () => {
+            if ("cordova" in window) {
+            } else {
+                if ("serviceWorker" in navigator) {
+                    navigator.serviceWorker
+                        .register("sw.js", { scope: "./" })
+                        .then(function (reg) { });
+                }
+            }
+        });
+    </script>
+
+    <script type="text/javascript" charset="utf-8">
+
+        // Wait for device API libraries to load
+        //
+        function onLoad() {
+            document.addEventListener("deviceready", onDeviceReady, false);
+        }
+
+        // device APIs are available
+        //
+        function onDeviceReady() {
+            document.addEventListener("offline", onOffline, false);
+        }
+
+        // Handle the offline event
+        //
+        function onOffline() {
+            alert("You are Disconnected");
+        }
+
+    </script>
+
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+    <script>
+        var OneSignal = window.OneSignal || [];
+        var initConfig = {
+            appId: "a3eea184-23de-4ffd-a188-306d5fe4ecd5",
+            notifyButton: {
+                enable: true,
+            },
+        };
+        OneSignal.push(function () {
+            OneSignal.SERVICE_WORKER_PARAM = { scope: "/push/onesignal/" };
+            OneSignal.SERVICE_WORKER_PATH = "push/onesignal/OneSignalSDKWorker.js";
+            OneSignal.SERVICE_WORKER_UPDATER_PATH =
+                "push/onesignal/OneSignalSDKUpdaterWorker.js";
+            OneSignal.init(initConfig);
+        });
+    </script>
+    <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+        </script>
+    <title>TopCar</title>
+</head>
+
+<body onload="onLoad()">
+    <div class="app">
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="/img/logos/car-logo.png" alt="" width="45" height="30"
+                        class="d-inline-block align-text-top">
+                    TopCar
+                </a>
+                <button type="button" class="btn btn-light d-flex me-2" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">Ajouter</button>
+            </div>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Ajouter une TopCar</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">Marque et modèle</span>
+                                <input type="text" class="form-control" aria-describedby="basic-addon1" id="car-model">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">URL de l'image</span>
+                                <input type="text" class="form-control" aria-describedby="basic-addon1" id="car-image">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">Description</span>
+                                <input type="text" class="form-control" aria-describedby="basic-addon1"
+                                    id="car-description">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">URL de la review</span>
+                                <input type="text" class="form-control" aria-describedby="basic-addon1" id="car-link">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                                <button type="button" class="btn btn-primary" onclick="addCar()"
+                                    data-bs-dismiss="modal">Créer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </nav>
+        <div class="container mt-4">
+            <div class="row mt-5">
+                <main class="container-fluid">
+                    <div class="row" id="list"></div>
+                </main>
+            </div>
+
+        </div>
+
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/native.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/car.js"></script>
+</body>
+
+</html>

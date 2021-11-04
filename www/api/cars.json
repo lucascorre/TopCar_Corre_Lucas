@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Ford Mustang",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    "img": "https://cdn.motor1.com/images/mgl/yjwxm/s1/2020-ford-mustang-shelby-gt500-first-drive.jpg",
+    "link": "https://www.turbo.fr/actualite-automobile/la-ford-mustang-shelby-gt500-maintenant-disponible-en-europe-159823"
+  },
+  {
+    "name": "Nissan GTR",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    "img": "img/car/nissan_gtr.jpg",
+    "link": "https://fr.motor1.com/news/500889/nissan-gt-r-nismo-japon/"
+  },
+  {
+    "name": "Ferrari 458",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    "img": "img/car/ferrari458.jpg",
+    "link": "https://www.largus.fr/actualite-automobile/la-ferrari-458-italia-enleve-le-haut-a-francfort-992366.html"
+  },
+  {
+    "name": "Toyota Supra MK4",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    "img": "img/car/toyota_supra.jpg",
+    "link": "https://www.leblogauto.com/2013/08/20-ans-deja-toyota-supra-mk4.html"
+  },
+  {
+    "name": "McLaren 720S",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+    "img": "img/car/mclaren_720s.jpg",
+    "link": "https://fr.wikipedia.org/wiki/McLaren_720S"
+  }
+]
